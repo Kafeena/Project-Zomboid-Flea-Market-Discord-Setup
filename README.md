@@ -28,7 +28,7 @@ Depending on the Flea Market sandbox settings, the bridge can post:
 3. In Discord, open your server and go to:
 
    ```text
-   Server Settings > Integrations > Webhooks > New Webhook
+   Server Settings/ Channel Settings > Integrations > Webhooks > New Webhook
    ```
 
 4. Choose the channel, name the webhook, and copy its URL.
