@@ -1,0 +1,160 @@
+[h1]Optional Discord Notifications[/h1]
+
+Discord notifications are completely optional. The flea market works normally without them.
+
+The Workshop download only contains the Project Zomboid mod. The separate Discord Bridge is hosted on GitHub because the PZ Workshop uploader does not accept the outside helper scripts needed to watch the server log and contact Discord.
+
+You only need the GitHub download if you are a server owner and want market activity posted into a Discord channel.
+
+[h2]Discord Bridge Download[/h2]
+
+Download the newest release here:
+
+[url=PASTE_YOUR_GITHUB_RELEASES_LINK_HERE]Flea Market by Kafeena — Discord Bridge Releases[/url]
+
+On GitHub:
+
+[olist]
+[*]Open the link above
+[*]Open the newest release
+[*]Under Assets, download FleaMarket-Discord-Bridge.zip
+[*]Do not download the entire Project Zomboid mod again
+[*]Extract the ZIP somewhere permanent on the server PC
+[/olist]
+
+A simple location would be:
+
+[code]
+C:\PZ Tools\Flea Market Discord Bridge
+[/code]
+
+[h2]Creating the Discord Webhook[/h2]
+
+You need permission to manage webhooks in the Discord server.
+
+[olist]
+[*]Open your Discord server
+[*]Open Server Settings
+[*]Open Integrations
+[*]Open Webhooks
+[*]Select New Webhook
+[*]Choose the channel where the flea-market posts should appear
+[*]Name it something such as Flea Market
+[*]Copy the webhook URL
+[/olist]
+
+The complete webhook URL is private. Do not post it in Steam comments, Discord chat, screenshots, GitHub files, or support messages.
+
+If the URL is ever exposed, delete that webhook and create a new one.
+
+[h2]Starting the Bridge on Windows[/h2]
+
+Open the extracted Discord Bridge folder and run:
+
+[code]
+START_DISCORD_BRIDGE.bat
+[/code]
+
+The first-time setup asks for:
+
+[olist]
+[*]The private Discord webhook URL
+[*]The server name shown in Discord
+[*]An optional Discord role ID
+[*]The Project Zomboid audit-log location
+[/olist]
+
+For a normal Windows installation, press Enter when it asks for the audit-log location. The default is:
+
+[code]
+%USERPROFILE%\Zomboid\Lua\KafeenaFleaMarket_Audit.log
+[/code]
+
+%USERPROFILE% automatically changes to the Windows account running the bridge.
+
+For example:
+
+[code]
+C:\Users\User\Zomboid\Lua\KafeenaFleaMarket_Audit.log
+[/code]
+
+The private setup is saved under:
+
+[code]
+%USERPROFILE%\Zomboid\Lua\KafeenaFleaMarketBridge
+[/code]
+
+Do not upload that private folder to GitHub or Steam.
+
+Leave the bridge window open while the Project Zomboid server is running.
+
+[h2]Enable Discord Events In-Game[/h2]
+
+Open:
+
+[code]
+Sandbox Settings
+→ Flea Market
+[/code]
+
+Enable:
+
+[code]
+Enable Discord Notifications
+Post New Listings
+[/code]
+
+Then enable any additional events you want posted:
+
+[list]
+[*]Completed sales
+[*]What's Hot promotions
+[*]Player cancellations
+[*]Expired listings
+[*]Admin removals
+[/list]
+
+Save the settings and fully restart the world or server.
+
+Existing listings are not posted retroactively. Create a brand-new listing after the settings are enabled.
+
+[h2]Testing Discord[/h2]
+
+[olist]
+[*]Start the Discord Bridge
+[*]Open a registered Flea Market broker as an authorized admin
+[*]Open the Admin tab
+[*]Press Test Discord Queue
+[/olist]
+
+A successful test should appear in Discord. The bridge watches:
+
+[code]
+KafeenaFleaMarket_Audit.log
+[/code]
+
+for new flea-market events.
+
+[h2]Remote and Rented Servers[/h2]
+
+The bridge has to run on a computer that can read the live audit log created by the Project Zomboid server.
+
+[list]
+[*]If the server runs on your PC, run the bridge on that PC
+[*]If the dedicated server is on another PC, run the bridge there
+[*]If you use a rented host, the host must allow an outside PowerShell/Python process or provide access to the live audit log
+[/list]
+
+Running the bridge on your home PC will not automatically read a log stored on a remote rented server.
+
+The flea market itself still works without the Discord Bridge.
+
+[h2]Resetting the Setup[/h2]
+
+To replace the webhook or change the server name, run:
+
+[code]
+RESET_DISCORD_SETUP.bat
+[/code]
+
+Then start the bridge again.

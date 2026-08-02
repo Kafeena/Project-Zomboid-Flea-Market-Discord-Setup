@@ -1,0 +1,16 @@
+{
+  "webhook_url": "https://discord.com/api/webhooks/PASTE_YOURS_HERE",
+  "queue_file": "%USERPROFILE%/Zomboid/Lua/KafeenaFleaMarket_Audit.log",
+  "poll_seconds": 2,
+  "server_name": "My Project Zomboid Server",
+  "mention_role_id": "",
+  "send_events": [
+    "listed",
+    "sold",
+    "promoted",
+    "cancelled",
+    "expired",
+    "admin_removed",
+    "test"
+  ]
+}
